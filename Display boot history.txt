@@ -1,0 +1,17 @@
+# ------------------------------
+# Script: Show last 5 system reboots
+
+
+
+
+#!/bin/bash
+
+# Step 1: Inform the user
+echo "Displaying the 5 most recent system boots..."
+
+# Step 2: Use 'last reboot' to get all reboots, and show only top 5 using head
+# 'last reboot' shows reboot history from system logs
+
+last reboot | head -n 5
+
+# Step 3: Script ends here
