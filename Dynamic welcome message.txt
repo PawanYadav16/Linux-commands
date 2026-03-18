@@ -1,0 +1,26 @@
+# ------------------------------
+# Script: Update /etc/motd with system info
+
+
+
+#!/bin/bash
+
+# Step 1: Collect system info
+
+HOSTNAME=$(hostname)                         # Get system hostname
+IP_ADDRESS=$(hostname -I | awk '{print $1}') # Get first IP address
+UPTIME=$(uptime -p)                          # Get pretty uptime
+LAST_LOGIN=$(last -n 1 $USER | head -n 1)     # Get last login info
+
+# Step 2: Create the message
+MESSAGE="Welcome to $HOSTNAME!
+IP Address : $IP_ADDRESS
+Uptime     : $UPTIME
+Last Login : $LAST_LOGIN"
+
+# Step 3: Write message to /etc/motd
+# Note: Requires sudo permission
+echo "$MESSAGE" | sudo tee /etc/motd > /dev/null
+
+# Step 4: Inform the user
+echo "Dynamic welcome message updated in /etc/motd"
