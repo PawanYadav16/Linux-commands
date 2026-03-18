@@ -1,8 +1,6 @@
 # ------------------------------
 # Script: Extract usernames from /etc/passwd
-# Name: Pawan Yadav
-# registration no: 12306746
-# ------------------------------
+
 
 
 #!/bin/bash
