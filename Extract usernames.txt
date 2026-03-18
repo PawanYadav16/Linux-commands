@@ -1,0 +1,20 @@
+# ------------------------------
+# Script: Extract usernames from /etc/passwd
+# Name: Pawan Yadav
+# registration no: 12306746
+# ------------------------------
+
+
+#!/bin/bash
+# Step 1: Display what the script is doing
+echo "Extracting usernames from /etc/passwd file..."
+
+# Step 2: Use 'cut' to get the first field (username) from each line
+# Fields in /etc/passwd are separated by ':'
+# Example line: root:x:0:0:root:/root:/bin/bash
+# Username is the first field, so we use -d: (delimiter) and -f1 (field 1)
+
+cut -d: -f1 /etc/passwd > userlist.txt
+
+# Step 3: Notify the user
+echo "Usernames have been saved to userlist.txt"
