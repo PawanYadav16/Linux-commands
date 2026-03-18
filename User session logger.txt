@@ -1,0 +1,20 @@
+# ------------------------------
+# Script: Log currently logged-in users
+
+#!/bin/bash
+
+# Step 1: Define log file
+LOG_FILE="/var/log/user_sessions.log"
+
+# Step 2: Add current timestamp
+echo "==== $(date) ====" >> "$LOG_FILE"
+
+# Step 3: Use 'who' command to get logged-in users and append to log
+who >> "$LOG_FILE"
+
+# Step 4: Add a newline to separate entries
+echo "" >> "$LOG_FILE"
+
+echo "logged in users added to /var/log/user_sessions.log"
+
+# Done
